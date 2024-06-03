@@ -1,1 +1,7 @@
-spring.application.name=TestProject
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/testproject
+    username: root
+    password: hjz123456
+  jpa:
+    show-sql: true
