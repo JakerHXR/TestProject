@@ -9,15 +9,17 @@ public class Student {
     private String stuName;
     private String stuPhone;
     private String stuAddress;
+    private String userId;
 
     public Student() {
     }
 
-    public Student(String stuId, String stuName, String stuPhone, String stuAddress) {
+    public Student(String stuId, String stuName, String stuPhone, String stuAddress, String userId) {
         this.stuId = stuId;
         this.stuName = stuName;
         this.stuPhone = stuPhone;
         this.stuAddress = stuAddress;
+        this.userId = userId;
     }
 
     public String getStuId() {
