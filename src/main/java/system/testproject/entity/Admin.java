@@ -9,13 +9,15 @@ import jakarta.persistence.Entity;
 public class Admin {
     private String adminId;
     private String adminName;
+    private String userId;
 
     public Admin() {
     }
 
-    public Admin(String adminId, String adminName) {
+    public Admin(String adminId, String adminName, String userId) {
         this.adminId = adminId;
         this.adminName = adminName;
+        this.userId = userId;
     }
 
     public String getAdminId() {
