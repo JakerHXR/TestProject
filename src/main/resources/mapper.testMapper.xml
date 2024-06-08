@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="system.testproject.mapper.TestMapper">
+    <!-- add a test -->
+    <insert id="addTest" parameterType="Test">
+        insert into test
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            `testId`,
+            `teaId`,
+            <if test="testName != null and testName != ''">`testName`,</if>
+            <if test="testStarttime != null and testStarttime != ''">`testStarttime`,</if>
+            <if test="testEndtime != null and testEndtime != ''">`testEndtime`,</if>
+            <if test="testScope != null and testScope != ''">`testScope`,</if>
+            <if test="testContent != null and testContent != ''">`testContent`,</if>
+            <if test="testExtra != null and testExtra != ''">`testExtra`,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{testId},
+            #{teaId},
+            <if test="testName != null and testName != ''">#{testName},</if>
+            <if test="testStarttime != null and testStarttime != ''">#{testStarttime},</if>
+            <if test="testEndtime != null and testEndtime != ''">#{testEndtime},</if>
+            <if test="testScope != null and testScope != ''">#{testScope},</if>
+            <if test="testContent != null and testContent != ''">#{testContent},</if>
+            <if test="testExtra != null and testExtra != ''">#{testExtra},</if>
+        </trim>
+    </insert>
+
+    <!--    update a test-->
+    <update id="updateTest" parameterType="Test">
+        update test
+        <set>
+            <if test="teaId != null and teaId != ''">#{teaId},</if>
+            <if test="testName != null and testName != ''">#{testName},</if>
+            <if test="testStarttime != null and testStarttime != ''">#{testStarttime}</if>
+            <if test="testEndtime != null and testEndtime != ''">#{testEndtime}</if>
+            <if test="testScope != null and testScope != ''">#{testScope}</if>
+            <if test="testContent != null and testContent != ''">#{testContent}</if>
+            <if test="testExtra != null and testExtra != ''">#{testExtra}</if>
+        </set>
+        where testId = #{testId}
+    </update>
+</mapper>
