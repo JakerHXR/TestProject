@@ -1,7 +1,16 @@
 package system.testproject.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.Data;
+
+/**
+ * 测评实体
+ * @author Jaker
+ */
+@Data
 public class Test {
     private String teaId;
+    @TableId
     private String testId;
     private String testName;
     private String testStarttime;
