@@ -1,6 +1,7 @@
 package system.testproject.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
@@ -8,6 +9,7 @@ import lombok.Data;
  * @author Jaker
  */
 @Data
+@TableName("test")
 public class Test {
     private String teaId;
     @TableId
