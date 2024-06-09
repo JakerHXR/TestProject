@@ -1,9 +1,12 @@
 package system.testproject.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
 /**
  * 学生表
  * @author Jaker
  */
+@TableName("student")
 public class Student {
     private String stuId;
     private String stuName;
