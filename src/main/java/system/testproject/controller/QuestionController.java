@@ -37,8 +37,8 @@ public class QuestionController {
         return questionServices.addQuestion(questions);
     }
 
-    @DeleteMapping("/{queId}")
     //remove a question
+    @DeleteMapping("/{queId}")
     public int removeQuestion(@PathVariable String queId){
         return questionServices.removeQuestion(queId);
     }
