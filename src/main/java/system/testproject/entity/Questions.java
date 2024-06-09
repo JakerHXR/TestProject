@@ -1,6 +1,14 @@
 package system.testproject.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
+/**
+ * @author Jaker
+ */
+@TableName(value = "questions")
 public class Questions {
+    @TableId
     private String queId;
     private String queType;
     private String queMajor;
