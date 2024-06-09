@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="system.testproject.mapper.QuestionMapper">
+        <insert id="addQuestion" parameterType="questions">
+            insert into questions
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                `queId`,
+                <if test="queType != null and queType != ''">`queType`</if>
+                <if test="queMajor != null and queMajor != ''">`queMajor`</if>
+                <if test="queTitle != null and queTitle != ''">`queTitle`</if>
+                <if test="queAnswear != null and queAnswear != ''">`queAnswear`</if>
+                <if test="queLevel != null and queLevel != ''">`queLevel`</if>
+            </trim>
+            <trim prefix="values (" suffix=")" suffixOverrides=",">
+                #{queId},
+                <if test="queType != null and queType != ''">#{queType}</if>
+                <if test="queMajor != null and queMajor != ''">#{queMajor}</if>
+                <if test="queTitle != null and queTitle != ''">#{queTitle}</if>
+                <if test="queAnswear != null and queAnswear != ''">#{queAnswear}</if>
+                <if test="queLevel != null and queLevel != ''">#{queLevel}</if>
+            </trim>
+        </insert>
+
+        <update id="updateQuestion" parameterType="questions">
+            update questions
+            <set>
+                <if test="queType != null and queType != ''">queType = #{queType}</if>
+                <if test="queMajor != null and queMajor != ''">queMajor = #{queMajor}</if>
+                <if test="queTitle != null and queTitle != ''">queTitle = #{queTitle}</if>
+                <if test="queAnswear != null and queAnswear != ''">queAnswear = #{queAnswear}</if>
+                <if test="queLevel != null and queLevel != ''">queLevel = #{queLevel}</if>
+            </set>
+            where queId = #{queId}
+        </update>
+</mapper>
