@@ -15,7 +15,7 @@ import java.util.List;
  * manager the test in the database via mapper
  * @author Jaker
  */
-
+@Mapper
 public interface TestMapper extends BaseMapper<Test> {
     //search for a test
     @Select("select * from test where testId = #{testId}")
