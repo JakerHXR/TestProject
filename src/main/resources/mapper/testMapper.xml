@@ -32,13 +32,13 @@
     <update id="updateTest" parameterType="Test">
         update test
         <set>
-            <if test="teaId != null and teaId != ''">#{teaId},</if>
-            <if test="testName != null and testName != ''">#{testName},</if>
-            <if test="testStarttime != null and testStarttime != ''">#{testStarttime}</if>
-            <if test="testEndtime != null and testEndtime != ''">#{testEndtime}</if>
-            <if test="testScope != null and testScope != ''">#{testScope}</if>
-            <if test="testContent != null and testContent != ''">#{testContent}</if>
-            <if test="testExtra != null and testExtra != ''">#{testExtra}</if>
+            <if test="teaId != null and teaId != ''">teaId = #{teaId},</if>
+            <if test="testName != null and testName != ''">testName = #{testName},</if>
+            <if test="testStarttime != null and testStarttime != ''">testStarttime = #{testStarttime}</if>
+            <if test="testEndtime != null and testEndtime != ''">testEndtime = #{testEndtime}</if>
+            <if test="testScope != null and testScope != ''">testScope = #{testScope}</if>
+            <if test="testContent != null and testContent != ''">testContent = #{testContent}</if>
+            <if test="testExtra != null and testExtra != ''">testExtra = #{testExtra}</if>
         </set>
         where testId = #{testId}
     </update>
