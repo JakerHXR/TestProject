@@ -1,5 +1,7 @@
 package system.testproject.services.impl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,12 @@ public class QuestionServicesImpl extends ServiceImpl<QuestionMapper, Questions>
     @Override
     public List<Questions> getRandomQuestions() {
         return questionMapper.getRandomQuestions();
+    }
+
+    //get all questions in pages
+    @Override
+    public IPage<Questions> getAllQuestions(Page<Questions> page) {
+        return questionMapper.selectPage(page,null);
     }
 
     //get all questions
