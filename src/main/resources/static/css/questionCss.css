@@ -1,0 +1,38 @@
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+h1 {
+    color: #007bff;
+}
+
+.table {
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.table th {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.pagination .page-link {
+    color: #007bff;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #6c757d;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
