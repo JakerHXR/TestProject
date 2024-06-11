@@ -11,6 +11,11 @@ spring:
         hbm2ddl:
           auto: update
         dialect: org.hibernate.dialect.MySQL8Dialect
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    cache: false
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
