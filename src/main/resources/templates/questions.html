@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>题库</title>
+    <!-- 引入Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" th:href="@{/css/questionCss.css}" media="all">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4">题库列表</h1>
+    <form action="/generate" method="post">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>勾选</th>
+                <th>题目名称</th>
+                <th>题目类型</th>
+                <th>题目学科</th>
+                <th>题目难度</th>
+                <th>题目答案</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="questions : ${questionsPage.records}">
+                <td><input type="checkbox" th:value="${questions.queId}" name="questionIds" class="form-check-input"/></td>
+                <td th:text="${questions.queTitle}">题目名称</td>
+                <td th:text="${questions.queType}">题目类型</td>
+                <td th:text="${questions.queMajor}">题目学科</td>
+                <td th:text="${questions.queLevel}">题目难度</td>
+                <td th:text="${questions.queAnswear}">题目答案</td>
+            </tr>
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary">生成</button>
+    </form>
+    <div class="mt-4">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item" th:classappend="${questionsPage.current == 1} ? 'disabled'">
+                    <a class="page-link" th:href="@{/questions(page=${questionsPage.current - 1}, size=${questionsPage.size})}">上一页</a>
+                </li>
+                <li class="page-item" th:classappend="${questionsPage.current == questionsPage.pages} ? 'disabled'">
+                    <a class="page-link" th:href="@{/questions(page=${questionsPage.current + 1}, size=${questionsPage.size})}">下一页</a>
+                </li>
+            </ul>
+        </nav>
+        <span>当前页: <span th:text="${questionsPage.current}">1</span> / <span th:text="${questionsPage.pages}">1</span></span>
+    </div>
+</div>
+
+<!-- 引入Bootstrap JS和依赖的Popper.js和jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
