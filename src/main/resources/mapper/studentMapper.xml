@@ -33,4 +33,12 @@
         </set>
         where stuId = #{stuId}
     </update>
+
+    <delete id="removeStudent" parameterType="string">
+        delete user,usernrole,student
+        from user
+            left join usernrole on user.userId = usernrole.userId
+            left join student on user.userId = student.userId
+        where user.userId = #{userID}
+    </delete>
 </mapper>
