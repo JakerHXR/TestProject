@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="system.testproject.mapper.AdminMapper">
+    <!-- add a test -->
+    <insert id="addAdmin" parameterType="Test">
+        insert into admin
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            `adminId`,
+            <if test="userId != null and userId != ''">`userId`,</if>
+            <if test="adminName != null and adminName != ''">`adminName`,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{adminId},
+            <if test="userId != null and userId != ''">#{userId},</if>
+            <if test="adminName != null and adminName != ''">#{adminName},</if>
+        </trim>
+    </insert>
+
+    <!--    update a test-->
+    <update id="updateAdmin" parameterType="Test">
+        update admin
+        <set>
+            <if test="userId != null and userId != ''">userId = #{userId},</if>
+            <if test="adminName != null and adminName != ''">adminName = #{adminName}</if>
+        </set>
+        where adminId = #{adminId}
+    </update>
+</mapper>

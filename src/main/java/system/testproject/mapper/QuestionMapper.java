@@ -25,4 +25,5 @@ public interface QuestionMapper extends BaseMapper<Questions> {
     //get all questions
     @Select("select * from questions")
     List<Questions> getAll();
+
 }

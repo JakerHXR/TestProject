@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="system.testproject.mapper.TeacherMapper">
+    <!-- add a test -->
+    <insert id="addTeacher" parameterType="Test">
+        insert into teacher
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            `teaId`,
+            <if test="userId != null and userId != ''">`userId`,</if>
+            <if test="teaName != null and teaName != ''">`teaName`,</if>
+            <if test="teaPhone != null and teaPhone != ''">`teaPhone`,</if>
+            <if test="teaAddress != null and teaAddress != ''">`teaAddress`,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{teaId},
+            <if test="userId != null and userId != ''">#{userId},</if>
+            <if test="teaName != null and teaName != ''">#{teaName},</if>
+            <if test="teaPhone != null and teaPhone != ''">#{teaPhone},</if>
+            <if test="teaAddress != null and teaAddress != ''">#{teaAddress},</if>
+        </trim>
+    </insert>
+
+    <!--    update a test-->
+    <update id="updateTeacher" parameterType="Test">
+        update teacher
+        <set>
+            <if test="userId != null and userId != ''">userId = #{userId},</if>
+            <if test="teaName != null and teaName != ''">teaName = #{teaName}</if>
+            <if test="teaPhone != null and teaPhone != ''">teaPhone = #{teaPhone}</if>
+            <if test="teaAddress != null and teaAddress != ''">teaAddress = #{teaAddress}</if>
+        </set>
+        where teaId = #{teaId}
+    </update>
+</mapper>
